@@ -72,6 +72,8 @@ def up_image():
         print("保存图片： {}{}_{}.{}".format(api_image_dir, value, timec, image_suffix))
         file_name = "{}_{}.{}".format(value, timec, image_suffix)
         file_path = os.path.join(api_image_dir + file_name)
+        if not os.path.exists(api_image_dir):
+            os.makedirs(api_image_dir)
         img.save(file_path)
         result = {
             'time': timec,   # 时间戳
